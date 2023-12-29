@@ -23,10 +23,10 @@ def gemv(trans, alpha, A, x, beta, y):
         assert isinstance( alpha, (int,float,complex)), "laff.gemv: alpha is neither a scalar nor a 1 x 1 matrix"
         scalar_alpha = alpha
 
-    assert type(A) is not matrix or len(A.shape) != 2, \
+    assert type(A) is matrix and len(A.shape) == 2, \
            "laff.gemv: matrix A must be a 2D numpy.matrix"
 
-    assert type(x) is not matrix or len(x.shape) != 2, \
+    assert type(x) is matrix and len(x.shape) == 2, \
            "laff.gemv: vector x must be a 2D numpy.matrix"
 
     if(type(beta) is matrix):
@@ -37,7 +37,7 @@ def gemv(trans, alpha, A, x, beta, y):
         assert isinstance( beta, (int,float,complex)), "laff.gemv: beta is neither a scalar nor a 1 x 1 matrix"
         scalar_beta = beta
 
-    assert type(y) is matrix and len(y.shape) != 2, \
+    assert type(y) is matrix and len(y.shape) == 2, \
            "laff.gemv: vector y must be a 2D numpy.matrix"
 
         
